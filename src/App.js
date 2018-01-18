@@ -1,6 +1,6 @@
 import _ from "lodash";
 import React, { Component } from "react";
-import { Route, withRouter } from "react-router-dom";
+import { Route, withRouter, Link } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import {
@@ -17,6 +17,11 @@ import {
   Segment,
   Visibility
 } from "semantic-ui-react";
+
+import Home from "./components/Home.js";
+import Education from "./components/Education.js";
+import Resume from "./components/Resume.js";
+import Portfolio from "./components/Portfolio.js";
 
 const menuStyle = {
   border: "none",
@@ -74,21 +79,6 @@ const RightImage = () => (
   />
 );
 
-const Paragraph = () => (
-  <p>
-    {[
-      "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ",
-      "tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas ",
-      "semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ",
-      "ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean ",
-      "fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. ",
-      "Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor ",
-      "neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, ",
-      "accumsan porttitor, facilisis luctus, metus"
-    ].join("")}
-  </p>
-);
-
 export default class App extends Component {
   state = {
     menuFixed: false,
@@ -121,10 +111,6 @@ export default class App extends Component {
 
     return (
       <div>
-        {/* Heads up, style below isn't necessary for correct work of example, simply our docs defines other
-            background color.
-          */}
-
         <style>{`
           html, body {
             background: #fff;
@@ -143,26 +129,34 @@ export default class App extends Component {
           >
             <Container>
               <Menu inverted borderless fixed={menuFixed && "top"}>
-                <Menu.Item
-                  name="home"
-                  active={activeItem === "home"}
-                  onClick={this.handleItemClick}
-                />
-                <Menu.Item
-                  name="portfolio/projects"
-                  active={activeItem === "portfolio/projects"}
-                  onClick={this.handleItemClick}
-                />
-                <Menu.Item
-                  name="education"
-                  active={activeItem === "education"}
-                  onClick={this.handleItemClick}
-                />
-                <Menu.Item
-                  name="resume/cv"
-                  active={activeItem === "resume/cv"}
-                  onClick={this.handleItemClick}
-                />
+                <Link to="/">
+                  <Menu.Item
+                    name="home"
+                    active={activeItem === "home"}
+                    onClick={this.handleItemClick}
+                  />
+                </Link>
+                <Link to="/portfolio">
+                  <Menu.Item
+                    name="portfolio/projects"
+                    active={activeItem === "portfolio/projects"}
+                    onClick={this.handleItemClick}
+                  />
+                </Link>
+                <Link to="/education">
+                  <Menu.Item
+                    name="education"
+                    active={activeItem === "education"}
+                    onClick={this.handleItemClick}
+                  />
+                </Link>
+                <Link to="/resume">
+                  <Menu.Item
+                    name="resume/cv"
+                    active={activeItem === "resume/cv"}
+                    onClick={this.handleItemClick}
+                  />
+                </Link>
               </Menu>
             </Container>
 
@@ -210,43 +204,30 @@ export default class App extends Component {
               icon="labeled"
               style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle}
             >
-              <Menu.Item>
-                <Icon name="linkedin" />
-                LinkedIn
-              </Menu.Item>
-
-              <Menu.Item>
-                <Icon name="github" />
-                GitHub
-              </Menu.Item>
-
-              <Menu.Item>
-                <Icon name="mail" />
-                Email
-              </Menu.Item>
+              <a href="https://www.linkedin.com/in/joshua-denenberg-809b5273/">
+                <Menu.Item>
+                  <Icon name="linkedin" />
+                  LinkedIn
+                </Menu.Item>
+              </a>
+              <a href="https://github.com/Jisho23">
+                <Menu.Item>
+                  <Icon name="github" />
+                  GitHub
+                </Menu.Item>
+              </a>
+              <a href="mailto:j.denenberg42@gmail.com">
+                <Menu.Item>
+                  <Icon name="mail" />
+                  Email
+                </Menu.Item>
+              </a>
             </Menu>
           </div>
-          {_.times(3, i => <Paragraph key={i} />)}
-
-          {/* Example with overlay menu is more complex, SUI simply clones all elements inside, but we should use a
-              different approach.
-              An empty Visibility element controls the need to change the fixing of element below, it also uses height
-              and width params received from its ref for correct display.
-            */}
-
-          {_.times(3, i => <Paragraph key={i} />)}
-          <LeftImage />
-
-          <Paragraph />
-          <RightImage />
-
-          {_.times(4, i => <Paragraph key={i} />)}
-          <LeftImage />
-
-          <Paragraph />
-          <RightImage />
-
-          {_.times(2, i => <Paragraph key={i} />)}
+          <Route exact path="/" render={() => <Home />} />
+          <Route exact path="/education" render={() => <Education />} />
+          <Route exact path="/portfolio" render={() => <Portfolio />} />
+          <Route exact path="/resume" render={() => <Resume />} />
         </Container>
       </div>
     );
