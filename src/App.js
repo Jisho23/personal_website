@@ -124,6 +124,7 @@ export default class App extends Component {
         {/* Heads up, style below isn't necessary for correct work of example, simply our docs defines other
             background color.
           */}
+
         <style>{`
           html, body {
             background: #fff;
@@ -135,112 +136,72 @@ export default class App extends Component {
           style={{ minHeight: 700, padding: "1em 0em" }}
           vertical
         >
-          <Container>
-            <Menu inverted pointing secondary size="large">
-              <Menu.Item
-                name="home"
-                active={activeItem === "home"}
-                onClick={this.handleItemClick}
-              />
-              <Menu.Item
-                name="portfolio/projects"
-                active={activeItem === "portfolio/projects"}
-                onClick={this.handleItemClick}
-              />
-              <Menu.Item
-                name="education"
-                active={activeItem === "education"}
-                onClick={this.handleItemClick}
-              />
-              <Menu.Item
-                name="resume/cv"
-                active={activeItem === "resume/cv"}
-                onClick={this.handleItemClick}
-              />
-            </Menu>
-          </Container>
+          <Visibility
+            onBottomPassed={this.stickTopMenu}
+            onBottomVisible={this.unStickTopMenu}
+            once={false}
+          >
+            <Container>
+              <Menu inverted borderless fixed={menuFixed && "top"}>
+                <Menu.Item
+                  name="home"
+                  active={activeItem === "home"}
+                  onClick={this.handleItemClick}
+                />
+                <Menu.Item
+                  name="portfolio/projects"
+                  active={activeItem === "portfolio/projects"}
+                  onClick={this.handleItemClick}
+                />
+                <Menu.Item
+                  name="education"
+                  active={activeItem === "education"}
+                  onClick={this.handleItemClick}
+                />
+                <Menu.Item
+                  name="resume/cv"
+                  active={activeItem === "resume/cv"}
+                  onClick={this.handleItemClick}
+                />
+              </Menu>
+            </Container>
 
-          <Container text>
-            <Header
-              as="h1"
-              content="Joshua Denenberg"
-              inverted
-              style={{
-                fontSize: "4em",
-                fontWeight: "normal",
-                marginBottom: 0,
-                marginTop: "3em"
-              }}
-            />
-            <Header
-              as="h2"
-              content="Programmer, Web Developer, Designer"
-              inverted
-              style={{ fontSize: "1.7em", fontWeight: "normal" }}
-            />
-          </Container>
+            <Container text>
+              <Header
+                as="h1"
+                content="Joshua Denenberg"
+                inverted
+                style={{
+                  fontSize: "4em",
+                  fontWeight: "normal",
+                  marginBottom: 0,
+                  marginTop: "3em"
+                }}
+              />
+
+              <Header
+                as="h2"
+                content="Programmer, Web Developer, Designer"
+                inverted
+                style={{ fontSize: "1.7em", fontWeight: "normal" }}
+              />
+            </Container>
+          </Visibility>
         </Segment>
 
         {/* Attaching the top menu is a simple operation, we only switch `fixed` prop add add another styles if it has
             gone beyond the scope of visibility
           */}
-        <Visibility
-          onBottomPassed={this.stickTopMenu}
-          onBottomVisible={this.unStickTopMenu}
-          once={false}
-        >
-          <Menu
-            borderless
-            fixed={menuFixed && "top"}
-            style={menuFixed ? fixedMenuStyle : menuStyle}
-          >
-            <Container text>
-              <Menu.Item>
-                <Image size="mini" src="/logo.png" />
-              </Menu.Item>
-              <Menu.Item header>Project Name</Menu.Item>
-              <Menu.Item as="a">Blog</Menu.Item>
-              <Menu.Item as="a">Articles</Menu.Item>
 
-              <Menu.Menu position="right">
-                <Dropdown text="Dropdown" pointing className="link item">
-                  <Dropdown.Menu>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                    <Dropdown.Divider />
-                    <Dropdown.Header>Header Item</Dropdown.Header>
-                    <Dropdown.Item>
-                      <i className="dropdown icon" />
-                      <span className="text">Submenu</span>
-                      <Dropdown.Menu>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown.Item>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Menu.Menu>
-            </Container>
-          </Menu>
-        </Visibility>
+        <Visibility
+          offset={80}
+          once={false}
+          onTopPassed={this.stickOverlay}
+          onTopVisible={this.unStickOverlay}
+          style={overlayFixed ? { ...overlayStyle, ...overlayRect } : {}}
+        />
 
         <Container text>
-          {_.times(3, i => <Paragraph key={i} />)}
-
-          {/* Example with overlay menu is more complex, SUI simply clones all elements inside, but we should use a
-              different approach.
-              An empty Visibility element controls the need to change the fixing of element below, it also uses height
-              and width params received from its ref for correct display.
-            */}
-          <Visibility
-            offset={80}
-            once={false}
-            onTopPassed={this.stickOverlay}
-            onTopVisible={this.unStickOverlay}
-            style={overlayFixed ? { ...overlayStyle, ...overlayRect } : {}}
-          />
-
           <div
             ref={this.handleOverlayRef}
             style={overlayFixed ? fixedOverlayStyle : overlayStyle}
@@ -248,16 +209,15 @@ export default class App extends Component {
             <Menu
               icon="labeled"
               style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle}
-              vertical
             >
               <Menu.Item>
-                <Icon name="twitter" />
-                Twitter
+                <Icon name="linkedin" />
+                LinkedIn
               </Menu.Item>
 
               <Menu.Item>
-                <Icon name="facebook" />
-                Share
+                <Icon name="github" />
+                GitHub
               </Menu.Item>
 
               <Menu.Item>
@@ -266,6 +226,13 @@ export default class App extends Component {
               </Menu.Item>
             </Menu>
           </div>
+          {_.times(3, i => <Paragraph key={i} />)}
+
+          {/* Example with overlay menu is more complex, SUI simply clones all elements inside, but we should use a
+              different approach.
+              An empty Visibility element controls the need to change the fixing of element below, it also uses height
+              and width params received from its ref for correct display.
+            */}
 
           {_.times(3, i => <Paragraph key={i} />)}
           <LeftImage />
