@@ -40,8 +40,8 @@ export default class Home extends Component {
           <Container>
             <div className="landing-image">
               <br />
-              Hi there! Welcome to my homepage. My name is Joshua and I'm a web
-              developer, designer and software designer. Josh expertise is in
+              Hi there! Welcome to my homepage. My name is Joshua and I am a web
+              developer, designer and software engineer. Josh expertise is in
               JavaScript, React, Rails and Express. In addition to backend and
               front-end coding, I style using Semantic-UI (with and without
               react), Bootstrap, and Bulma.<br /> <RightImage /> <br />{" "}
