@@ -6,14 +6,17 @@ import {
   Image,
   Icon,
   Segment,
-  Transition
+  Transition,
+  Divider
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import Submenu from "../components/Submenu.js";
 
 const RightImage = () => (
   <Image
     floated="right"
     size="medium"
+    circular
     src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAMAAQDGAAwAAQAAAAAAAAxqAAAAJDVhYWU4YmQ4LTk1YWQtNDRkYy1iNTFhLTZhODc0Y2JiMjQ1NQ.jpg"
     style={{ margin: "2em -4em 2em 2em" }}
   />
@@ -31,6 +34,8 @@ export default class Home extends Component {
   render() {
     return (
       <Transition.Group animation={"fade down"} duration={2300}>
+        <Divider />
+        <Submenu />
         {this.state.visible && (
           <Container>
             <div className="landing-image">
