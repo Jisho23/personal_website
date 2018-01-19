@@ -149,7 +149,7 @@ export default class App extends Component {
                   </Link>
                 </Menu>
               </Container>
-              <Transition.Group animation={"fade up"} duration={2500}>
+              <Transition.Group animation={"slide down"} duration={2500}>
                 {this.state.visible && (
                   <Container text>
                     <Header
