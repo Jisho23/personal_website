@@ -15,7 +15,8 @@ import {
   Menu,
   Button,
   Segment,
-  Visibility
+  Visibility,
+  Transition
 } from "semantic-ui-react";
 
 import Home from "./components/Home.js";
@@ -83,8 +84,13 @@ export default class App extends Component {
   state = {
     menuFixed: false,
     overlayFixed: false,
-    activeItem: "home"
+    activeItem: "home",
+    visible: false
   };
+
+  componentDidMount() {
+    this.setState({ visible: true });
+  }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
@@ -119,11 +125,11 @@ export default class App extends Component {
         <Segment
           inverted
           textAlign="center"
-          style={{ minHeight: 700, padding: "1em 0em" }}
+          style={{ minHeight: 600, padding: "1em 0em" }}
           vertical
         >
           <Visibility
-            onBottomPassed={this.stickTopMenu}
+            onTopPassed={this.stickTopMenu}
             onBottomVisible={this.unStickTopMenu}
             once={false}
           >
@@ -159,27 +165,30 @@ export default class App extends Component {
                 </Link>
               </Menu>
             </Container>
+            <Transition.Group animation={"fade up"} duration={2500}>
+              {this.state.visible && (
+                <Container text>
+                  <Header
+                    as="h1"
+                    content="Joshua Denenberg"
+                    inverted
+                    style={{
+                      fontSize: "4em",
+                      fontWeight: "normal",
+                      marginBottom: 0,
+                      marginTop: "3em"
+                    }}
+                  />
 
-            <Container text>
-              <Header
-                as="h1"
-                content="Joshua Denenberg"
-                inverted
-                style={{
-                  fontSize: "4em",
-                  fontWeight: "normal",
-                  marginBottom: 0,
-                  marginTop: "3em"
-                }}
-              />
-
-              <Header
-                as="h2"
-                content="Programmer, Web Developer, Designer"
-                inverted
-                style={{ fontSize: "1.7em", fontWeight: "normal" }}
-              />
-            </Container>
+                  <Header
+                    as="h2"
+                    content="Programmer, Web Developer, Designer"
+                    inverted
+                    style={{ fontSize: "1.7em", fontWeight: "normal" }}
+                  />
+                </Container>
+              )}
+            </Transition.Group>
           </Visibility>
         </Segment>
 
@@ -196,39 +205,70 @@ export default class App extends Component {
         />
 
         <Container text>
-          <div
-            ref={this.handleOverlayRef}
-            style={overlayFixed ? fixedOverlayStyle : overlayStyle}
-          >
-            <Menu
-              icon="labeled"
-              style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle}
+          {this.state.activeItem == "home" ? (
+            <div
+              ref={this.handleOverlayRef}
+              style={overlayFixed ? fixedOverlayStyle : overlayStyle}
             >
-              <a href="https://www.linkedin.com/in/joshua-denenberg-809b5273/">
-                <Menu.Item>
-                  <Icon name="linkedin" />
-                  LinkedIn
-                </Menu.Item>
-              </a>
-              <a href="https://github.com/Jisho23">
-                <Menu.Item>
-                  <Icon name="github" />
-                  GitHub
-                </Menu.Item>
-              </a>
-              <a href="mailto:j.denenberg42@gmail.com">
-                <Menu.Item>
-                  <Icon name="mail" />
-                  Email
-                </Menu.Item>
-              </a>
-            </Menu>
-          </div>
-          <Route exact path="/" render={() => <Home />} />
-          <Route exact path="/education" render={() => <Education />} />
-          <Route exact path="/portfolio" render={() => <Portfolio />} />
-          <Route exact path="/resume" render={() => <Resume />} />
+              <Menu
+                icon="labeled"
+                style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle}
+              >
+                <a href="https://www.linkedin.com/in/joshua-denenberg-809b5273/">
+                  <Menu.Item>
+                    <Icon name="linkedin" />
+                    LinkedIn
+                  </Menu.Item>
+                </a>
+                <a href="https://github.com/Jisho23">
+                  <Menu.Item>
+                    <Icon name="github" />
+                    GitHub
+                  </Menu.Item>
+                </a>
+                <a href="mailto:j.denenberg42@gmail.com">
+                  <Menu.Item>
+                    <Icon name="mail" />
+                    Email
+                  </Menu.Item>
+                </a>
+              </Menu>
+            </div>
+          ) : null}
+          <Container>
+            <Route exact path="/" render={() => <Home />} />
+            <Route exact path="/education" render={() => <Education />} />
+            <Route exact path="/portfolio" render={() => <Portfolio />} />
+            <Route exact path="/resume" render={() => <Resume />} />
+          </Container>
         </Container>
+
+        <Segment
+          inverted
+          vertical
+          style={{ margin: "5em 0em 0em", padding: "5em 0em" }}
+        >
+          <Container textAlign="center">
+            <Divider inverted section />
+
+            <List horizontal inverted divided link>
+              <List.Item
+                as="a"
+                href="https://www.linkedin.com/in/joshua-denenberg-809b5273/"
+              >
+                LinkedIn
+              </List.Item>
+
+              <List.Item as="a" href="https://github.com/Jisho23">
+                Github
+              </List.Item>
+
+              <List.Item as="a" href="mailto:j.denenberg42@gmail.com">
+                Email
+              </List.Item>
+            </List>
+          </Container>
+        </Segment>
       </div>
     );
   }

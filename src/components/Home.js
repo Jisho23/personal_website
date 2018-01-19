@@ -5,7 +5,8 @@ import {
   Header,
   Image,
   Icon,
-  Segment
+  Segment,
+  Transition
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
@@ -23,37 +24,46 @@ const Content = () => {
 };
 
 export default class Home extends Component {
-  state = {};
-
+  state = { visible: false };
+  componentDidMount() {
+    this.setState({ visible: true });
+  }
   render() {
     return (
-      <div className="landing-image">
-        <br />
-        Hi there! Welcome to my homepage. My name is Joshua and I'm a web
-        developer, designer and software designer. Josh expertise is in
-        JavaScript, React, Rails and Express. In addition to backend and
-        front-end coding, I style using Semantic-UI (with and without react),
-        Bootstrap, and Bulma.<br /> <RightImage /> <br /> Languages that I know
-        are C#, Python, and Ruby. My database experience includes PostgreSQL,
-        MySQL, SQLite, and MongoDB. State managers I use are MobX and Redux.{" "}
-        <br />
-        <br />
-        I am also an avid game designer and enthusiast, familiar with several
-        game engines including Unity and GameMaker Studio and have also built
-        his own JavaScript engines for text adventures and turn-based rpgs. I
-        have also actively written for gaming including contributing articles to
-        HardcoreGaming 101.<br /> <br />In addition to my coding experience, I
-        am a classically trained bassoonist and composer holding a BA from the
-        University of Connectic, MM from the Hartt School, and a DMA from the
-        University of Toronto. As a producer and electro-acoustic musician I
-        most often use Ableton Live and Cubase but is familiar with Logic Pro
-        and ProTools. For notation, I use Sibelius.
-        <br />
-        <br />
-        Thank you for dropping by! Feel free to drop me a line.
-        <br />
-        <br />
-      </div>
+      <Transition.Group animation={"fade down"} duration={2300}>
+        {this.state.visible && (
+          <Container>
+            <div className="landing-image">
+              <br />
+              Hi there! Welcome to my homepage. My name is Joshua and I'm a web
+              developer, designer and software designer. Josh expertise is in
+              JavaScript, React, Rails and Express. In addition to backend and
+              front-end coding, I style using Semantic-UI (with and without
+              react), Bootstrap, and Bulma.<br /> <RightImage /> <br />{" "}
+              Languages that I know are Ruby, JavaScript, Python, and C#. My
+              database experience includes PostgreSQL, MySQL, SQLite, and
+              MongoDB. State managers I use are MobX and Redux. <br />
+              <br />
+              I am also an avid game designer and enthusiast, familiar with
+              several game engines including Unity and GameMaker Studio and have
+              also built his own JavaScript engines for text adventures and
+              turn-based rpgs. I have also actively written for gaming including
+              contributing articles to HardcoreGaming 101.<br /> <br />In
+              addition to my coding experience, I am a classically trained
+              bassoonist and composer holding a BA from the University of
+              Connectic, MM from the Hartt School, and a DMA from the University
+              of Toronto. As a producer and electro-acoustic musician I most
+              often use Ableton Live and Cubase but is familiar with Logic Pro
+              and ProTools. For notation, I use Sibelius.
+              <br />
+              <br />
+              Thank you for dropping by! Feel free to drop me a line.
+              <br />
+              <br />
+            </div>
+          </Container>
+        )}
+      </Transition.Group>
     );
   }
 }
