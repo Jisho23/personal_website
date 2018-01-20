@@ -62,7 +62,7 @@ export default class Home extends Component {
               and ProTools. For notation, I use Sibelius.
               <br />
               <br />
-              Thank you for dropping by! Feel free to drop me a line.
+              Thank you for dropping by! Feel free to contact me at my email anytime.
               <br />
               <br />
             </div>
