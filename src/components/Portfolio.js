@@ -48,9 +48,9 @@ export default class Portfolio extends Component {
               <p>
                 A JavaScript text adventure recycling design patterns from
                 Novel.js. Works with an express server and a complex text parser
-                to interperate the users input. The current adventure is an
+                to interperate the user's input. The current adventure is an
                 interactive resume based upon my office. (Note: as this is a
-                free Heroku app, if has not been actively used in a while it may
+                free Heroku app, if it has not been actively used in a while it may
                 take a minute to boot.)
               </p>
               <Button
@@ -83,8 +83,8 @@ export default class Portfolio extends Component {
                 A social media esq app that allows gamers to add games to their
                 library, flag themselves as 'LFG', and then search the database
                 for gamers looking to play those games and are actively LFG.
-                Other features include an honoring systen (by which favorably
-                rated users filter to the top) and a websocket chat feature that
+                Other features include an honoring system (by which favorably
+                rated users filter to the top) and a WebSocket chat feature that
                 has a unique room for each created group.
               </p>
               <Button as={Link} to="https://github.com/Jisho23/lfg_client">
@@ -111,7 +111,7 @@ export default class Portfolio extends Component {
                     <p>
                       An app based on the fan run HOTSApi that parses through a
                       database of replays and helps the user simulate a draft
-                      based on percentage winrates of characters. Uses a Rails
+                      based on percentage win rates of characters. Uses a Rails
                       and PostgreSQL backend to build frontend statistics that
                       sort and recalculate every time a selection has been made
                       to account for a new character present in the draft.

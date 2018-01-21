@@ -32,7 +32,7 @@ export default class Education extends Component {
               <p>
                 The Flatiron School, one of the top coding programs in the
                 country, is based on teaching the fundamentals of programming,
-                webdesign, and database construction. The core curriculum
+                web design, and database construction. The core curriculum
                 focuses on the languages JavaScript and Ruby, the frameworks
                 Rails and React, and the database language SQL. In addition to
                 this curriculum, Flatiron puts community first, emphasizing work
@@ -63,7 +63,7 @@ export default class Education extends Component {
               <p>
                 MM (Master of Musical Arts) with an emphasis in composition.
                 Josh's degree focused on classical composition and music
-                technology. He was the repicient of the 2021 Burton Family
+                technology. He was the recipient of the 2012 Burton Family
                 Scholarship, awarded to a single composition student annually,
                 and contributed music for the University of Hartford Theater
                 department's production of 'The King Stag' (2013). His primary
@@ -76,8 +76,8 @@ export default class Education extends Component {
               <Header as="h4">September 2006 - May 2010</Header>
               <p>
                 BA (Bachelor of Arts) in music with a music history
-                concentration. Josh's degree focused on music performance with a
-                primary instrument of bassoon. In addition, Josh's history
+                concentration. Josh's degree focused on music performance with an
+                primary instrument, the bassoon. In addition, Josh's history
                 concentration put emphasis on historic research and analysis.
                 Alongside this, Josh pursued an English minor with a emphasis on
                 literature. While studying, he was also an active writer and

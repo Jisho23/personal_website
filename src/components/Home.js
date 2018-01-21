@@ -52,7 +52,7 @@ export default class Home extends Component {
               I am also an avid game designer and enthusiast, familiar with
               several game engines including Unity and GameMaker Studio and have
               also built his own JavaScript engines for text adventures and
-              turn-based rpgs. I have also actively written for gaming including
+              turn-based RPGS. I have also actively written for gaming including
               contributing articles to HardcoreGaming 101.<br /> <br />In
               addition to my coding experience, I am a classically trained
               bassoonist and composer holding a BA from the University of
