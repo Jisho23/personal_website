@@ -37,7 +37,7 @@ export default class Portfolio extends Component {
                   'Women Composers Database'
                 </a>
                 I am building an alpha build of the front end. Will interperate
-                the Google Sheet as a prototype database and interperate it into
+                the Google Sheet as a prototype database and build it into
                 React components for easy sorting and parsing.
               </p>
             </Container>
@@ -48,7 +48,7 @@ export default class Portfolio extends Component {
               <p>
                 A JavaScript text adventure recycling design patterns from
                 Novel.js. Works with an express server and a complex text parser
-                to interperate the user input. The current adventure is an
+                to interperate the users input. The current adventure is an
                 interactive resume based upon my office. (Note: as this is a
                 free Heroku app, if has not been actively used in a while it may
                 take a minute to boot.)
