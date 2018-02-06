@@ -1,19 +1,13 @@
 import _ from "lodash";
 import React, { Component } from "react";
-import { Route, withRouter, Link } from "react-router-dom";
-import logo from "./logo.svg";
+import { Route, Link } from "react-router-dom";
 import "./App.css";
 import {
   Container,
   Divider,
-  Dropdown,
-  Grid,
   Header,
-  Icon,
-  Image,
   List,
   Menu,
-  Button,
   Segment,
   Visibility,
   Transition
@@ -24,42 +18,9 @@ import Education from "./components/Education.js";
 import Resume from "./components/Resume.js";
 import Portfolio from "./components/Portfolio.js";
 
-const menuStyle = {
-  border: "none",
-  borderRadius: 0,
-  boxShadow: "none",
-  marginBottom: "1em",
-  marginTop: "4em",
-  transition: "box-shadow 0.5s ease, padding 0.5s ease"
-};
-
-const fixedMenuStyle = {
-  backgroundColor: "#fff",
-  border: "1px solid #ddd",
-  boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.2)"
-};
-
 const overlayStyle = {
   float: "left",
   margin: "0em 3em 1em 0em"
-};
-
-const fixedOverlayStyle = {
-  ...overlayStyle,
-  position: "fixed",
-  top: "80px",
-  zIndex: 10
-};
-
-const overlayMenuStyle = {
-  position: "relative",
-  left: 0,
-  transition: "left 0.5s ease"
-};
-
-const fixedOverlayMenuStyle = {
-  ...overlayMenuStyle,
-  left: "800px"
 };
 
 export default class App extends Component {
@@ -176,11 +137,6 @@ export default class App extends Component {
             </Visibility>
           </Segment>
         </div>
-
-        {/* Attaching the top menu is a simple operation, we only switch `fixed` prop add add another styles if it has
-            gone beyond the scope of visibility
-          */}
-
         <Visibility
           offset={80}
           once={false}

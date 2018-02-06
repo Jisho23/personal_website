@@ -1,15 +1,6 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Container,
-  Header,
-  Image,
-  Icon,
-  Segment,
-  Transition,
-  Divider
-} from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Container, Image, Transition, Divider } from "semantic-ui-react";
+
 import Submenu from "../components/Submenu.js";
 
 const RightImage = () => (
@@ -21,10 +12,6 @@ const RightImage = () => (
     style={{ margin: "2em -4em 2em 2em" }}
   />
 );
-
-const Content = () => {
-  return ``;
-};
 
 export default class Home extends Component {
   state = { visible: false };
@@ -62,7 +49,8 @@ export default class Home extends Component {
               and ProTools. For notation, I use Sibelius.
               <br />
               <br />
-              Thank you for dropping by! Feel free to contact me at my email anytime.
+              Thank you for dropping by! Feel free to contact me at my email
+              anytime.
               <br />
               <br />
             </div>

@@ -3,16 +3,11 @@ import {
   Button,
   Container,
   Header,
-  Image,
-  Icon,
-  Segment,
   List,
   Divider,
   Transition,
   Breadcrumb
 } from "semantic-ui-react";
-import { Link } from "react-router-dom";
-import Submenu from "../components/Submenu.js";
 
 export default class Resume extends Component {
   state = { visible: false };

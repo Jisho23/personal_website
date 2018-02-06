@@ -3,10 +3,6 @@ import {
   Button,
   Container,
   Header,
-  Image,
-  Icon,
-  Segment,
-  List,
   Divider,
   Transition,
   Grid
@@ -37,8 +33,8 @@ export default class Portfolio extends Component {
                   'Women Composers Database'
                 </a>
                 I am building an alpha build of the front end. Will interperate
-                the Google Sheet as a prototype database and build it into
-                React components for easy sorting and parsing.
+                the Google Sheet as a prototype database and build it into React
+                components for easy sorting and parsing.
               </p>
             </Container>
             <Divider />
@@ -50,8 +46,8 @@ export default class Portfolio extends Component {
                 Novel.js. Works with an express server and a complex text parser
                 to interperate the user's input. The current adventure is an
                 interactive resume based upon my office. (Note: as this is a
-                free Heroku app, if it has not been actively used in a while it may
-                take a minute to boot.)
+                free Heroku app, if it has not been actively used in a while it
+                may take a minute to boot.)
               </p>
               <Button
                 as={Link}
@@ -93,7 +89,7 @@ export default class Portfolio extends Component {
             </Container>
             <Divider />
             <Container text>
-              <Header as="h2">HOTSDraft</Header>
+              <Header as="h2">HOTSDrafter</Header>
               <Header as="h4">October 2017 - January 2018</Header>
               <Grid columns={2}>
                 <Grid.Row>
@@ -119,8 +115,11 @@ export default class Portfolio extends Component {
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
-              <Button as={Link} to="https://github.com/Jisho23/lfg_client">
+              <Button as={Link} to="https://github.com/Jisho23/HOTSDrafter">
                 Github
+              </Button>
+              <Button as={Link} to="https://github.com/Jisho23/hots_draft_api">
+                Github / Backend
               </Button>
             </Container>
             <Divider />

@@ -1,16 +1,6 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Container,
-  Header,
-  Image,
-  Icon,
-  Segment,
-  List,
-  Divider,
-  Transition
-} from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Container, Header, Divider, Transition } from "semantic-ui-react";
+
 import Submenu from "../components/Submenu.js";
 
 export default class Education extends Component {
@@ -76,8 +66,8 @@ export default class Education extends Component {
               <Header as="h4">September 2006 - May 2010</Header>
               <p>
                 BA (Bachelor of Arts) in music with a music history
-                concentration. Josh's degree focused on music performance with an
-                primary instrument, the bassoon. In addition, Josh's history
+                concentration. Josh's degree focused on music performance with
+                an primary instrument, the bassoon. In addition, Josh's history
                 concentration put emphasis on historic research and analysis.
                 Alongside this, Josh pursued an English minor with a emphasis on
                 literature. While studying, he was also an active writer and

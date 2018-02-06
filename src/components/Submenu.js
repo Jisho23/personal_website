@@ -1,38 +1,7 @@
 import _ from "lodash";
 import React, { Component } from "react";
-import { Route, withRouter, Link } from "react-router-dom";
 import "../App.css";
-import {
-  Container,
-  Divider,
-  Dropdown,
-  Grid,
-  Header,
-  Icon,
-  Image,
-  List,
-  Menu,
-  Button,
-  Segment,
-  Visibility,
-  Transition
-} from "semantic-ui-react";
-
-const menuStyle = {
-  border: "none",
-  borderRadius: 0,
-  boxShadow: "none",
-  marginBottom: "1em",
-  marginTop: "4em",
-  transition: "box-shadow 0.5s ease, padding 0.5s ease"
-};
-
-const fixedMenuStyle = {
-  backgroundColor: "#fff",
-  border: "1px solid #ddd",
-  left: "40px",
-  boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.2)"
-};
+import { Icon, Menu, Visibility } from "semantic-ui-react";
 
 const overlayStyle = {
   float: "left",
@@ -88,7 +57,7 @@ export default class Submenu extends Component {
 
   unStickTopMenu = () => this.setState({ menuFixed: false });
   render() {
-    const { menuFixed, overlayFixed, overlayRect } = this.state;
+    const { overlayFixed, overlayRect } = this.state;
     return (
       <div>
         <Visibility
