@@ -31,9 +31,9 @@ export default class Portfolio extends Component {
                 In conjunction with the{" "}
                 <a href="https://docs.google.com/spreadsheets/d/18wEOsqlPl-Chi4JqIW9oDMQCxXt7PLklBotAjOn5Ix8/edit#gid=11073339">
                   'Women Composers Database'
-                </a>
-                I am building an alpha build of the front end. Will interperate
-                the Google Sheet as a prototype database and build it into React
+                </a>{" "}
+                I am building an alpha prototype of the front end. It will interperate
+                the Google Sheet as a prototype database and build React
                 components for easy sorting and parsing.
               </p>
             </Container>
@@ -78,7 +78,7 @@ export default class Portfolio extends Component {
               <p>
                 A social media esq app that allows gamers to add games to their
                 library, flag themselves as 'LFG', and then search the database
-                for gamers looking to play those games and are actively LFG.
+                for gamers looking to play those games if they are actively LFG.
                 Other features include an honoring system (by which favorably
                 rated users filter to the top) and a WebSocket chat feature that
                 has a unique room for each created group.
