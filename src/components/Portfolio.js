@@ -32,10 +32,13 @@ export default class Portfolio extends Component {
                 <a href="https://docs.google.com/spreadsheets/d/18wEOsqlPl-Chi4JqIW9oDMQCxXt7PLklBotAjOn5Ix8/edit#gid=11073339">
                   'Women Composers Database'
                 </a>{" "}
-                I am building an alpha prototype of the front end. It will interperate
-                the Google Sheet as a prototype database and build React
-                components for easy sorting and parsing.
+                I am building an alpha prototype of the front end. It will
+                interperate the Google Sheet as a prototype database and build
+                React components for easy sorting and parsing.
               </p>
+              <Button as={Link} to="https://wcdb-alpha.herokuapp.com/">
+                Heroku App
+              </Button>
             </Container>
             <Divider />
             <Container text>
