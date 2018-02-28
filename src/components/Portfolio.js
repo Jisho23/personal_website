@@ -43,9 +43,9 @@ export default class Portfolio extends Component {
             <Divider />
             <Container text>
               <Header as="h2">Adventu-Resume (Text Adventure Engine)</Header>
-              <Header as="h4">January 2018 - </Header>
+              <Header as="h4">January 2018 - February 2018</Header>
               <p>
-                A JavaScript text adventure recycling design patterns from
+                A JavaScript text adventure utilizing design patterns from
                 Novel.js. Works with an express server and a complex text parser
                 to interperate the user's input. The current adventure is an
                 interactive resume based upon my office. (Note: as this is a
